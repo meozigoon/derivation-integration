@@ -50,8 +50,36 @@ def fp(l):
 	return df
 
 
+def If(l):
+    idf = ""
+    i = 0
+    while i < len(l):
+        if l[i][0] == 'x':
+            co = 1
+            if isDigit(l[i - 1][0]):
+                co = int(l[i - 1])
+            if l[i] == 'x':
+                idf += str(co / 2) + 'x^2'
+            else:
+                exp = int(l[i].split('^')[1])
+                idf += str(co / (exp + 1)) + 'x^' + str(exp + 1)
+            i += 1
+        elif isDigit(l[i][0]):
+            i += 1
+        elif l[i] == '+' or l[i] == '-':
+            idf += l[i]
+            i += 1
+    if idf[-1] == '+' or idf[-1] == '-':
+        if l[-1] != '1':
+            idf += l[-1]
+        idf += 'x'
+    return idf
+
+
 fx = input() #str
 ft = f(fx) # list
 print(ft)
 df = fp(ft) #str
 print(df)
+idf = If(ft)
+print(idf) #str

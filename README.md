@@ -2,4 +2,4 @@
 
 calculates polynomial derivation in Python
 
-** maybe not efficient**
+**maybe not efficient**

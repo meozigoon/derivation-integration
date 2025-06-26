@@ -59,10 +59,18 @@ def If(l):
             if isDigit(l[i - 1][0]):
                 co = int(l[i - 1])
             if l[i] == 'x':
-                idf += str(co / 2) + 'x^2'
+                if co / 2 == co // 2:
+                    idf += str(co // 2)
+                else:
+                    idf += str(co / 2)
+                idf += 'x^2'
             else:
                 exp = int(l[i].split('^')[1])
-                idf += str(co / (exp + 1)) + 'x^' + str(exp + 1)
+                if co / (exp + 1) == co // (exp + 1):
+                    idf += str(co // (exp + 1))
+                else:
+                    idf += str(co / (exp + 1))
+                idf += 'x^' + str(exp + 1)
             i += 1
         elif isDigit(l[i][0]):
             i += 1

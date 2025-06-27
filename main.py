@@ -78,6 +78,8 @@ def fp(l):
 			i += 1
 	if len(df) >= 2 and (df[-2] == '+' or df[-2] == '-'):
 	    df = df[0:-2]
+	if df[-1] == ' ':
+	    df = df[0:-1]
 	return df
 
 def If(l):
@@ -115,6 +117,8 @@ def If(l):
         if l[-1] != '1':
             idf += l[-1]
         idf += 'x '
+    if idf[-1] == ' ':
+	idf = idf[0:-1]
     return idf
 
 
